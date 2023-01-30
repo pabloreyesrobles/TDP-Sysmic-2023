@@ -11,6 +11,7 @@
 \usepackage[nottoc]{tocbibind}
 \usepackage{pdfpages}
 \usepackage{ragged2e}
+\usepackage{hyperref}
 %
 \usepackage{color}
 \newcommand{\PR}[1]{{\textcolor{green}{[PR: #1]}}}  % color gei
@@ -20,6 +21,7 @@
 \newcommand{\FP}[1]{{\textcolor{orange}{[FP: #1]}}} % color gei
 \newcommand{\MA}[1]{{\textcolor{red}{[MA: #1]}}}
 \newcommand{\NH}[1]{{\textcolor{purple}{[NH: #1]}}} % color the rial macho
+
 
 \begin{document}
 \tracingall
@@ -60,7 +62,7 @@
     \label{fig:Wheel1}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.6]{Images/Wheel.jpeg}
     \caption{Front and lateral view of assembled wheel. }
@@ -72,19 +74,52 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Software}
 
-\PR{En el TDP2019 se especifica que la interfaz está construida en QT, mencionar los cambios en los frameworks utilizados para el diseño de la interfaz. Si hubieron cambios en el diagrama general del sistema, también mencionarlos y rehacer la figura.}
+\subsection{Custom client}
+Through the years of the initiative, we have always worked with the client created by the robojackets team to achieve participation in the competition, but due to the new needs of our robots and the increase in members belonging to the computer science career, the creation of a client that fits the characteristics of our robots was the next step to grow. Based on this, a new version has been developed based on an unfinished project created by former members of our initiative. Our current objective is focused on creating a base framework that allows easy incorporation of future higher-level research, thus creating an excellent testing ground for old and new members. Progress is as follows:
+
+\begin{itemize}
+    \item \textbf{Frontend migration to Tailwind}
+    The first client version was made with Bulma CSS, a JavaScript library that allows working easily with the design intended. It worked for a while, but it was used by a previous programmers team. In order to use the last libraries and frameworks, we decided to change our CSS library to Tailwind CSS.
+    \\
+
+    Why is this library a better option than Bulma CSS? There were several points about our choice:
+    \begin{enumerate}
+        \item Our main point was about the knowledge that new members had about this library.
+        \item This library facilitates the directory reduction in only two CSS files.
+        \item It allows to write short key words within the class property in the DOM object to code quicker and better.        
+    \end{enumerate}
+    
+    \item \textbf{Robot connection}
+    \\
+    \DT{Daniel Torres}
+    
+    \item \textbf{Use of Python as connection between our engine and the view}\\
+
+    Our first version of the client was completely made in JavaScript. It implies that the view and the connection that allowed to show our robots digitally used JavaScript libraries. Sadly, we used \href{https://www.npmjs.com/package/dgram}{dgram}, a socket oriented library that has been deprecated no long time ago. That was a problem, because whenever it gets removed from npm, it could be a great vulnerability. \\[2pt]
+
+    In response to this issue, we resolved to adopt Python as our intermediate language to link the engine ports with the robots information and the client ports to bind them.
+    
+\end{itemize}
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{gDiagram.png}
-    \caption{General diagram of the system}
+    \caption{General diagram of the system developed in 2019\DT{buscar referencia}}
     \label{fig:gDiagram}
 \end{figure}
 
-\begin{figure}[h]
+The core aspects of the previous version have remained unchanged, with only features already present in the overall structure being updated.
+
+\subsection{New version of the data package}
+\DT{Daniel Torres}
+
+\PR{En el TDP2019 se especifica que la interfaz está construida en QT, mencionar los cambios en los frameworks utilizados para el diseño de la interfaz. Si hubieron cambios en el diagrama general del sistema, también mencionarlos y rehacer la figura.}
+
+
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.4]{GUI_F.png}
-    \caption{GUI screenshot}
+    \caption{GUI screenshot \DT{Se necesita screenshot de la nueva interfaz}}
     \label{fig:GUI}
 \end{figure}
 
